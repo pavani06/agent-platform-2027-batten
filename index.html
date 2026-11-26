@@ -42,12 +42,13 @@
       <div class="hero__text">
         <p class="eyebrow">Resumo em português · resposta a “Agent Platform of 2027”</p>
         <h1 id="hero-title">Solo, sementes <span class="amp">&amp;</span> clima</h1>
-        <p class="hero__lede">A tubulação de uma plataforma de agentes já tem mapa. O que faz o jardim crescer é outra coisa: <em>o que o sistema lembra</em>, <em>como ele enxerga</em> e <em>como ele lê um mercado que reage a ele</em>.</p>
+        <p class="hero__lede">A infraestrutura de uma plataforma de agentes já tem mapa. Para Dan Batten, o que faz o jardim crescer é <em>memória</em>, <em>olhar próprio</em> e <em>leitura do mercado</em>.</p>
         <p class="hero__credit">
-          Um explicador do artigo <cite>“‘Agent Platform of 2027’: Soil, Seeds, &amp; Weather”</cite>, de
-          <strong>Dan Batten</strong> (<a href="https://www.infinitegarden.ai" rel="noopener" target="_blank">Infinite Garden</a>), escrito em resposta ao post de
+          Explicador do artigo <cite>“‘Agent Platform of 2027’: Soil, Seeds, &amp; Weather”</cite>, de
+          <strong>Dan Batten</strong> (<a href="https://www.infinitegarden.ai" rel="noopener" target="_blank">Infinite Garden</a>), em resposta a
           <a href="https://x.com/john_ssuh/status/2124336124172935336" rel="noopener" target="_blank">John Suh (@john_ssuh)</a>.
         </p>
+        <p class="hero__disclaimer">Este é um resumo; os argumentos completos, exemplos e nuances estão no artigo original.</p>
         <div class="hero__cta">
           <a class="btn" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Leia o original no X<span class="sr-only"> (abre em nova aba)</span></a>
           <a class="btn btn--ghost" href="#contexto">Começar o resumo ↓</a>
@@ -135,24 +136,14 @@
     <section id="contexto" class="section" aria-labelledby="contexto-t">
       <div class="wrap">
         <p class="kicker">01 · Contexto</p>
-        <h2 id="contexto-t">De uma fábrica que constrói fábricas para um jardim</h2>
-        <div class="cols">
-          <div class="prose reveal">
-            <p>John Suh publicou um mapa do que uma plataforma de agentes precisa ter em 2027: atores isolados, sandboxes compartilhadas, sistema de arquivos com permissões, conversas separadas de sessões, uma caixa de entrada para aprovações, <em>listeners</em> e workflows escritos como código. Dan Batten chama esse mapa de o mais claro que já leu, e concorda que John acerta a tubulação de base.</p>
-            <p>No fim do texto, John troca de metáfora: a plataforma vencedora pareceria menos uma <strong>fábrica que constrói fábricas</strong> e mais um <strong>jardim</strong>, uma base onde cada cliente planta as próprias sementes, e agentes, pessoas e sinais do negócio cuidam do que brota.</p>
-            <p>Batten admite o viés: a empresa dele se chama Infinite Garden.</p>
-          </div>
-          <aside class="card card--note reveal" aria-label="Sobre a Infinite Garden">
-            <h3>O jardim de onde vem a experiência</h3>
-            <ul class="facts">
-              <li><span class="facts__n">18</span><span>meses cultivando uma versão desse jardim num único vertical: <strong>marcas de consumo</strong>.</span></li>
-              <li><span class="facts__n facts__n--icon" aria-hidden="true">⟳</span><span>Agentes pesquisam demanda, desenvolvem produtos e lançam marcas <strong>como experimentos</strong>.</span></li>
-              <li><span class="facts__n facts__n--icon" aria-hidden="true">✂</span><span>O <strong>mercado decide</strong> quais marcas ganham espaço e quais são podadas; as lições de cada lote seguem para o próximo.</span></li>
-            </ul>
-          </aside>
-        </div>
+        <h2 id="contexto-t">Da fábrica ao jardim</h2>
+        <p class="lead reveal">John Suh mapeou a infraestrutura de uma plataforma de agentes e fechou trocando a imagem da fábrica pela do jardim. Batten concorda com o mapa, mas acha que ele para antes do mais difícil.</p>
+        <ul class="facts facts--row reveal">
+          <li><span class="facts__n">18</span><span>meses da Infinite Garden lançando <strong>marcas de consumo</strong> como experimentos</span></li>
+          <li><span class="facts__n facts__n--icon" aria-hidden="true">✂</span><span>o <strong>mercado poda</strong>; as lições passam ao próximo lote</span></li>
+        </ul>
         <div class="thesis reveal">
-          <p><span class="thesis__label">A tese</span> Canteiros e irrigação importam, mas não fazem o jardim crescer. Os problemas difíceis são, na metáfora, o <strong class="c-soil">solo</strong>, as <strong class="c-leaf">sementes</strong> e o <strong class="c-sky">clima</strong>. Uma plataforma deveria tratar esses três como <strong>camadas de primeira classe</strong>, em vez de deixar cada cliente improvisá-las por cima.</p>
+          <p><span class="thesis__label">A tese</span> <strong class="c-soil">Solo</strong>, <strong class="c-leaf">sementes</strong> e <strong class="c-sky">clima</strong> deveriam ser camadas de primeira classe da plataforma, não algo que cada cliente improvisa por cima.</p>
         </div>
       </div>
     </section>
@@ -160,52 +151,33 @@
     <!-- 3. RUNTIME -->
     <section id="runtime" class="section section--wood" aria-labelledby="runtime-t">
       <div class="wrap">
-        <p class="kicker">02 · A camada de runtime</p>
-        <h2 id="runtime-t">Canteiros e irrigação: levar cada run até o fim sem ninguém olhando</h2>
-        <p class="lead reveal">Das peças do mapa de John, a Infinite Garden roda versões próprias de três: <strong>gestão de sessões</strong>, <strong>workflows duráveis</strong> e <strong>permissões</strong>. Foram as primeiras a ser construídas, porque um enxame que lança marcas sem supervisão precisa atravessar sozinho quatro momentos de cada run.</p>
+        <p class="kicker">02 · Canteiros e irrigação</p>
+        <h2 id="runtime-t">A tubulação que leva cada run até o fim</h2>
+        <p class="lead reveal">Sessões, workflows duráveis e permissões em código foram as primeiras peças construídas, para que cada run atravesse sem supervisão os quatro momentos abaixo.</p>
 
-        <ol class="flow reveal" aria-label="Os quatro momentos que uma run precisa atravessar sem supervisão">
+        <ol class="flow reveal" aria-label="Pontos que uma run precisa atravessar sem supervisão">
           <li class="flow__step" style="--i:0">
             <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="11" r="5"/><path d="M6 27c1-6 5-9 10-9s9 3 10 9"/></svg></span>
-            <h3>Pausar para uma decisão humana</h3>
-            <p>Quando a run precisa de alguém (um marco, uma mudança de direção, um bloqueio), o sistema posta uma nota curta com link para o rascunho, o teste ou o lançamento.</p>
+            <h3>Decisão humana</h3>
           </li>
           <li class="flow__step" style="--i:1">
             <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg></span>
-            <h3>Esperar outro agente</h3>
-            <p>A run pode esperar um minuto ou uma semana pela revisão de outro agente, ou por uma correção, sem manter um processo vivo nem gastar computação.</p>
+            <h3>Espera por outro agente</h3>
           </li>
           <li class="flow__step" style="--i:2">
             <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="18" rx="7" ry="9"/><path d="M16 9v18M9 14l-5-3M23 14l5-3M9 20H3M23 20h6M10 25l-4 3M22 25l4 3"/></svg></span>
-            <h3>Topar com um bug</h3>
-            <p>Os erros estão indo pelo mesmo caminho: a run registra o incidente, entrega para um <em>harness</em> de código e retoma o loop sem puxar uma pessoa.</p>
+            <h3>Bug</h3>
           </li>
           <li class="flow__step" style="--i:3">
             <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="16" r="5"/><path d="M16 16h13M24 16v5M28 16v4"/></svg></span>
-            <h3>Precisar de uma credencial</h3>
-            <p>A sessão do modelo roda isolada, sem credenciais, e emite ações estruturadas. Código confiável checa delegação, escopo e orçamento antes de qualquer ação executar.</p>
+            <h3>Credencial</h3>
           </li>
         </ol>
 
-        <div class="grid3">
-          <article class="card reveal">
-            <h3>Conversas separadas de sessões</h3>
-            <p>A pessoa recebe só a nota curta. As sessões brutas ficam em logs e traces; você abre uma sessão para depurar uma run que falhou, como abriria código-fonte.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Workflows são código durável</h3>
-            <p>Esperas longas não seguram processo nem queimam computação. E o mesmo desenho está sendo levado para os erros.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Permissões vivem em código</h3>
-            <p>Por isso um prompt esperto não convence um agente a passar do limite de orçamento: quem decide é o código, não o modelo.</p>
-          </article>
-        </div>
-
         <div class="runs reveal" aria-labelledby="runs-t">
           <div class="runs__text">
-            <h3 id="runs-t">O limite da tubulação</h3>
-            <p>Juntas, essas três peças levam o enxame por esperas, bugs e passagens para uma pessoa sem estourar orçamento. Mesmo assim, como Batten resume, a <strong>run 400 ainda começa tão ingênua quanto a run 1</strong>. Levar lições de uma run para a próxima exige mais três camadas.</p>
+            <h3 id="runs-t">O limite</h3>
+            <p>A tubulação não aprende: a <strong>run 400 ainda começa tão ingênua quanto a run 1</strong>. Para carregar lições entre runs, Batten propõe mais três camadas.</p>
           </div>
           <div class="runs__viz" aria-hidden="true">
             <div class="runs__counter"><span>run</span> <b id="run-count">1</b></div>
@@ -225,19 +197,19 @@
       <div class="wrap">
         <p class="kicker">03 · O solo</p>
         <h2 id="solo-t">Memória com escopo</h2>
-        <p class="lead reveal">O sistema de arquivos compartilhado de John (parte GitHub, parte Google Drive) registra o que cada agente escreveu e quando. Isso resolve o armazenamento. O problema difícil está um nível acima: decidir quais dos milhares de resultados de teste de um enxame merecem virar habilidade compartilhada, antes que um resultado de sorte se espalhe pela frota como regra.</p>
+        <p class="lead reveal">Guardar resultados é fácil. O difícil é decidir qual deles vira conhecimento da frota inteira sem transformar sorte em regra.</p>
 
         <div class="duo">
           <article class="card card--dark reveal">
             <p class="tag">Erro 1</p>
             <h3>Esquecer</h3>
-            <p>A descoberta vive na cabeça de um funcionário e vai embora quando ele sai.</p>
+            <p>O aprendizado vai embora com quem sai.</p>
             <div class="mini mini--forget" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
           </article>
           <article class="card card--dark reveal">
             <p class="tag">Erro 2</p>
             <h3>Super-aprender</h3>
-            <p>Um anúncio vence o controle e, da noite para o dia, vira “as pessoas querem esta mensagem”, guiando decisões em mercados onde ela nunca foi testada.</p>
+            <p>Uma vitória isolada vira dogma.</p>
             <div class="mini mini--overlearn" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
           </article>
         </div>
@@ -250,19 +222,17 @@
 
         <div class="cols cols--center">
           <div class="prose reveal">
-            <h3 class="h3-lg">A regra da casa</h3>
             <blockquote class="quote quote--inline">
               <p lang="en">“A test result is evidence, not a verdict.”</p>
               <p class="quote__pt">Um resultado de teste é evidência, não veredito.</p>
               <footer>Dan Batten</footer>
             </blockquote>
-            <p>Para que a experiência de um agente nunca vire verdade compartilhada, quatro coisas moram em <strong>depósitos separados</strong>:</p>
-            <ul class="stores" aria-label="Os quatro depósitos separados">
-              <li><b>Conhecimento com fonte</b></li>
-              <li><b>Registros de trabalho</b></li>
-              <li><b>Memória de cada agente</b></li>
-              <li><b>Skills reutilizáveis</b></li>
+            <ul class="points">
+              <li>Cada evidência guarda o <strong>escopo</strong> em que foi observada.</li>
+              <li>Depois de promover uma skill, checa-se se ela <strong>é usada e melhora</strong> o resultado.</li>
+              <li>Fracassos ficam <strong>arquivados</strong>, com os motivos.</li>
             </ul>
+            <p class="examples">Exemplos no artigo: o anúncio de suplemento que vence entre universitários e o Minoxidil que virou Rogaine.</p>
           </div>
           <figure class="rings reveal">
             <svg viewBox="0 0 420 420" role="img" aria-labelledby="rings-t rings-d">
@@ -287,53 +257,9 @@
               </g>
               <text x="70" y="330" class="ring-sub ring-sub--start">protegido</text>
             </svg>
-            <figcaption>Skills resolvem <strong>de dentro para fora</strong>: local, depois função, depois global. Ofício compartilhado e guardrails ficam em pacotes versionados atrás de um “navegador” enxuto, então cada agente carrega só o que a tarefa pede. A camada local nunca é sobrescrita por envios centrais. Um fork serve para experimentar, mas não passa por cima de regras protegidas nem de permissões.</figcaption>
+            <figcaption>Skills resolvem do local ao global; forks experimentam sem tocar no que é protegido.</figcaption>
           </figure>
         </div>
-
-        <div class="scope reveal" aria-labelledby="scope-t">
-          <h3 id="scope-t" class="h3-lg">Exemplo do artigo: a vitória com escopo</h3>
-          <ol class="scope__steps">
-            <li class="scope__step">
-              <span class="scope__n">1</span>
-              <p>Um anúncio de suplemento para foco <strong>vence</strong> com universitários na semana antes das provas.</p>
-            </li>
-            <li class="scope__step">
-              <span class="scope__n">2</span>
-              <p>A vitória é arquivada <strong>com o escopo junto</strong>, e não como verdade sobre suplementos para foco em geral:</p>
-              <p class="chips"><span>universitários</span><span>semana de provas</span><span>um teste de anúncio</span></p>
-            </li>
-            <li class="scope__step">
-              <span class="scope__n">3</span>
-              <p>A lição só chega a uma pessoa de 60 anos preocupada com névoa mental <strong>depois</strong> que um teste pequeno com esse público mostra a mesma mensagem funcionando ali também.</p>
-            </li>
-          </ol>
-        </div>
-
-        <div class="grid2">
-          <article class="card reveal">
-            <h3>Promoção com linhagem</h3>
-            <ol class="lineage" aria-label="Etapas da promoção de uma adaptação local">
-              <li>Adaptação local se sustenta em vários briefs reais</li>
-              <li>Um <em>pull request</em> a promove a um pacote compartilhado, com a linhagem anexada</li>
-              <li>Checa-se se runs seguintes carregam a nova skill</li>
-              <li>…e se o resultado dessas runs melhora</li>
-            </ol>
-            <p class="note">Publicado e usado são estados diferentes.</p>
-          </article>
-          <article class="card reveal">
-            <h3>A mesma disciplina, ao contrário</h3>
-            <p>Quando uma fonte muda, a evidência superada é <strong>retirada</strong>, e as skills e memórias construídas sobre ela são revisadas. Testes sem resultado e marcas podadas também <strong>ficam arquivados</strong>.</p>
-            <div class="minox" aria-label="Linha do tempo do minoxidil">
-              <div class="minox__row"><b>1979</b><span>Minoxidil aprovado para pressão alta. Médicos se dão ao trabalho de registrar um efeito colateral estranho: pacientes ganhando cabelo.</span></div>
-              <div class="minox__line" aria-hidden="true"><i></i></div>
-              <div class="minox__row"><b>+9 anos</b><span>O remédio volta como Rogaine.</span></div>
-            </div>
-            <p class="note">Segundos atos só acontecem se fracassos antigos continuam encontráveis, com os motivos intactos.</p>
-          </article>
-        </div>
-
-        <p class="takeaway reveal">Controle de versão diz <em>o que</em> mudou. A memória precisa dizer <em>por que</em> uma crença se moveu, qual evidência sustentou a mudança e qual público a crença cobre. É a memória com escopo que transforma runs antigas em <strong>solo</strong>.</p>
       </div>
     </section>
 
@@ -341,19 +267,20 @@
     <section id="sementes" class="section section--leaf" aria-labelledby="sementes-t">
       <div class="wrap">
         <p class="kicker">04 · As sementes</p>
-        <h2 id="sementes-t">Priors aprendidos: dar ao agente um ponto de vista</h2>
-        <p class="lead reveal">Batten concorda com John que sistemas que funcionam preferem agentes estreitos, definidos em código, a um mega-agente. Esse debate costuma girar em torno de ferramentas e acesso. A pergunta menos discutida é <strong>para o que o agente olha</strong>, e sobre o que ele é empurrado a ter opinião.</p>
+        <h2 id="sementes-t">Priors aprendidos: um ponto de vista</h2>
+        <p class="lead reveal">Por conta própria, agentes convergem para o óbvio. Com muitos deles sobre poucos modelos, o risco é uma monocultura frágil.</p>
 
         <div class="cols cols--center">
           <div class="prose reveal">
-            <h3 class="h3-lg">Deixados à vontade, os modelos derivam para a média</h3>
-            <p>Peça um anúncio de suplemento premium e dá para imaginar o resultado antes do primeiro pixel:</p>
             <blockquote class="quote quote--inline">
               <p lang="en">“a bottle on a stone plinth, soft window light, a sprig of green, beige on beige.”</p>
               <p class="quote__pt">um frasco sobre um pedestal de pedra, luz suave de janela, um raminho verde, bege sobre bege.</p>
               <footer>Dan Batten</footer>
             </blockquote>
-            <p>Rode um milhão de agentes sobre um punhado de modelos-base e o resultado é uma <strong>monocultura</strong>: marca após marca parecendo tirada do mesmo deck, e uma única praga pode acabar com o campo inteiro.</p>
+            <article class="card stat">
+              <p class="stat__n">+<span data-count="10.7" data-decimals="1">10,7</span>%</p>
+              <p>de semelhança entre histórias num estudo de 2024 citado no artigo.</p>
+            </article>
           </div>
           <figure class="mono reveal">
             <div class="mono__panels">
@@ -370,33 +297,19 @@
           </figure>
         </div>
 
-        <div class="grid2">
-          <article class="card stat reveal">
-            <p class="stat__n"><span data-count="10.7" data-decimals="1">10,7</span>%</p>
-            <p>Num estudo de 2024, escritores que receberam uma ideia de um modelo de linguagem escreveram histórias avaliadas como <strong>mais criativas</strong>, e 10,7% <strong>mais parecidas entre si</strong>.</p>
-          </article>
-          <article class="card stat reveal">
-            <p class="stat__n stat__n--word">Midjourney</p>
-            <p>Em outro estudo, designers que esboçavam com Midjourney ficaram <strong>mais perto de um exemplo</strong> que tinham visto do que quem desenhava sem ajuda ou com busca de imagens.</p>
-          </article>
-        </div>
-        <p class="takeaway reveal">Cada peça fica mais afiada enquanto o conjunto se estreita. E prompt esperto, diz Batten, não quebra monocultura.</p>
-
-        <h3 class="h3-lg reveal">Mecanismos mais estranhos, para dar ao agente olhos próprios</h3>
+        <h3 class="h3-lg reveal">Como dar olhos próprios ao agente</h3>
         <ul class="mech">
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">▦</span><div><h4>Biblioteca estética</h4><p>Busca por <em>o que</em> uma referência faz e <em>como</em> ela parece. Um still de filme pode entrar pelo ritmo ou pela luz.</p></div></li>
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">◎</span><div><h4>Cada referência com um trabalho</h4><p>Para cada brief, uma lista curta, e cada imagem recebe uma função estrita: quais qualidades pegar, quais deixar, às vezes um contraexemplo para marcar o limite.</p></div></li>
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">⇄</span><div><h4>Pares improváveis</h4><p>Referências que nunca dividiriam um painel são combinadas e o agente precisa explicar a conexão. Se não consegue, o painel é só uma pilha de estilos.</p></div></li>
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">∿</span><div><h4>Tempo fora do brief</h4><p>Loops curtos de deriva, moldados por personas criativas: o agente navega sem tarefa e anota o que chamou atenção, com um motivo. As notas podem voltar semanas depois em trabalhos sem relação. (São caros de rodar, um problema à parte.)</p></div></li>
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">✓✕</span><div><h4>Memória de decisões</h4><p>Loops separados guardam decisões criativas, não entregas: o que foi escolhido, o que foi morto e por quê. Sem esse histórico, o agente repete a mesma escolha segura.</p></div></li>
-          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">⚖</span><div><h4>Em teste: juízes e críticos</h4><p>Modelos pequenos treinados para escolher a mais forte entre duas direções bem acabadas e explicar por quê; e agentes com sensibilidades em choque que se criticam, como uma boa equipe criativa discute.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">▦</span><div><h4>Biblioteca estética</h4><p>Referências com uma função definida.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">∿</span><div><h4>Deriva criativa</h4><p>Tempo sem brief, achados anotados.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">✓✕</span><div><h4>Memória de decisões</h4><p>O que ficou, o que morreu, por quê.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">⚖</span><div><h4>Juízes e críticos</h4><p>Ainda em teste.</p></div></li>
         </ul>
 
         <div class="bench reveal">
           <div class="bench__seal" aria-hidden="true"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34"/><text x="40" y="54">?</text></svg></div>
           <div>
-            <h3>Honestidade sobre o que ainda não se sabe</h3>
-            <p>A impressão interna de que o trabalho parece mais afiado não prova nada. Há um benchmark <strong>cego e pareado</strong> montado, com briefs separados e lacrados de antemão, para testar se a biblioteca torna os resultados mensuravelmente mais distintos. <strong>Ele ainda não foi rodado.</strong></p>
+            <h3>Ainda sem prova</h3>
+            <p>O benchmark cego que mediria o ganho existe, mas não rodou.</p>
             <blockquote class="quote quote--inline">
               <p lang="en">“We haven't run the benchmark yet. Until we do, the lift is a hunch.”</p>
               <p class="quote__pt">Ainda não rodamos o benchmark. Até lá, o ganho é um palpite.</p>
@@ -404,8 +317,6 @@
             </blockquote>
           </div>
         </div>
-
-        <p class="takeaway reveal">Juntando tudo, uma semente carrega mais que um arquivo de configuração e um conjunto de ferramentas: <strong>um ponto de vista, um histórico de escolhas mantidas e mortas, e uma memória herdada de runs anteriores.</strong></p>
       </div>
     </section>
 
@@ -414,7 +325,7 @@
       <div class="wrap">
         <p class="kicker">05 · O clima</p>
         <h2 id="clima-t">Sensoriamento reflexivo</h2>
-        <p class="lead reveal">Os <em>listeners</em> de John deixam os agentes assinarem o mundo via webhooks, streams e <em>change data capture</em>, transformando eventos em sinais. Num negócio real, porém, os sinais que mais importam vêm de <strong>um mercado reagindo às suas próprias jogadas</strong>.</p>
+        <p class="lead reveal">Os sinais que mais importam vêm do mercado reagindo às suas próprias jogadas. Um enxame ativo passa a fazer parte do mercado que observa.</p>
 
         <figure class="weather reveal">
           <canvas id="weather" aria-hidden="true"></canvas>
@@ -429,32 +340,24 @@
           <article class="card reveal">
             <h3>Motor a jato</h3>
             <div class="engine" aria-hidden="true"><span></span><span></span><span></span><span></span><b>=</b><span class="engine__whole"></span></div>
-            <p>Dá para testar cada peça na bancada, montar e confiar que o motor vai render perto dos números, porque as peças não mudam de comportamento depois de instaladas.</p>
+            <p>Peças testadas isoladamente preveem o todo.</p>
           </article>
           <article class="card reveal">
             <h3>Demanda de consumo</h3>
             <div class="complex" aria-hidden="true">
               <svg viewBox="0 0 200 90"><g class="complex__links"><path d="M30 25L100 45L170 25M30 65L100 45L170 65M30 25L30 65M170 25L170 65M30 25L170 65M30 65L170 25"/></g><g class="complex__nodes"><circle cx="30" cy="25" r="7"/><circle cx="30" cy="65" r="7"/><circle cx="100" cy="45" r="9"/><circle cx="170" cy="25" r="7"/><circle cx="170" cy="65" r="7"/></g></svg>
             </div>
-            <p>É um sistema complexo: clientes, concorrentes, cultura, preços e canais reagem uns aos outros e ao seu lançamento. Um teste antes do lançamento não mostra o mercado que o lançamento cria.</p>
+            <p>Sistema complexo: o lançamento cria um mercado que o teste não via.</p>
           </article>
         </div>
 
-        <div class="coke reveal" aria-labelledby="coke-t">
-          <h3 id="coke-t">1985: o teste que mediu a coisa errada</h3>
-          <div class="coke__grid">
-            <div class="coke__fact"><b>~200 mil</b><span>pessoas em testes de sabor da Coca-Cola, com preferência clara por uma fórmula mais doce. A original foi substituída.</span></div>
-            <div class="coke__fact"><b>sabor ≠ apego</b><span>Os testes mediram bem o sabor, mas não o apego, que só apareceu depois que a Coca agiu.</span></div>
-            <div class="coke__fact coke__fact--days"><b><span data-count="79">79</span> dias</b><span>depois, a Classic estava de volta.</span><span class="coke__bar" aria-hidden="true"><i></i></span></div>
-          </div>
-        </div>
+        <p class="coke reveal"><b>1985</b> Exemplo do artigo: a New Coke.</p>
 
         <div class="cols cols--center">
-          <div class="prose reveal">
-            <h3 class="h3-lg">O enxame vira parte do mercado</h3>
-            <p>Clientes aprendem, concorrentes copiam, e o anúncio vencedor do mês passado para de vencer. Nenhum momento se repete, então testes A/B limpos são raros.</p>
-            <p>Isso muda o que um listener precisa carregar. Um monitor cego ao anúncio, à mudança de preço ou ao lançamento que os próprios agentes acabaram de pôr no ar acaba <strong>perseguindo o próprio rastro</strong> do enxame. Cada sinal precisa vir com <strong>proveniência</strong>, a começar pelas últimas jogadas dos nossos agentes.</p>
-          </div>
+          <ul class="points points--dark reveal">
+            <li>Todo sinal precisa de <strong>proveniência</strong>, a começar pelas nossas jogadas.</li>
+            <li>Testes A/B limpos ficam raros.</li>
+          </ul>
           <div class="bets reveal" aria-labelledby="bets-t">
             <h3 id="bets-t" class="sr-only">Muitas apostas pequenas versus uma aposta grande</h3>
             <div class="bets__col">
@@ -462,13 +365,12 @@
               <div class="bets__big" aria-hidden="true"></div>
             </div>
             <div class="bets__col">
-              <p class="bets__label">Muitas jogadas pequenas num portfólio</p>
+              <p class="bets__label">Muitas jogadas pequenas</p>
               <div class="bets__small" aria-hidden="true" id="bets-small"></div>
             </div>
-            <p class="bets__note">Na prática: compromissos físicos caros seguram-se <strong>o mais tarde que a evidência permitir</strong>.</p>
+            <p class="bets__note">Compromissos físicos caros, o mais tarde que a evidência permitir.</p>
           </div>
         </div>
-        <p class="takeaway reveal">O <em>product-market fit</em> continua se movendo depois do lançamento. O tempo muda, e o sistema precisa continuar lendo o céu.</p>
       </div>
     </section>
 
@@ -477,25 +379,18 @@
       <div class="wrap">
         <p class="kicker">06 · A conclusão</p>
         <h2 id="banco-t">O que não vira banco de dados</h2>
-        <p class="lead reveal">John argumenta que a maior parte do resto do software vai ser rebaixada a banco de dados sob a camada de agentes. Para a maioria dos SaaS (CRMs, ferramentas de tickets, dashboards), Batten acha que ele está certo. Fica a pergunta incômoda: se a tubulação é padrão e os concorrentes chamam os mesmos poucos modelos, <strong>onde mora a vantagem duradoura?</strong></p>
+        <p class="lead reveal">Se a infraestrutura vira padrão e todos usam os mesmos modelos, a vantagem fica no que não se aluga.</p>
 
         <div class="rent reveal">
           <div class="rent__col rent__col--yes">
             <h3>Dá para alugar</h3>
-            <p>Uma ótima versão da plataforma de John vai chegar, do time dele ou de um rival. Quando chegar, seus concorrentes alugam a mesma.</p>
             <ul><li>Canteiros e irrigação</li><li>Os mesmos poucos modelos</li></ul>
           </div>
           <div class="rent__col rent__col--no">
             <h3>Não dá para alugar</h3>
-            <p>Só se acumula com briefs e lançamentos reais:</p>
-            <ul>
-              <li>Memória dos testes que falharam, e por que falharam</li>
-              <li>Ponto de vista construído com milhares de decisões de manter ou matar</li>
-              <li>Listeners que sabem quando estão lendo o próprio rastro do enxame</li>
-            </ul>
+            <ul><li>Memória com escopo</li><li>Ponto de vista</li><li>Listeners que reconhecem o próprio rastro</li></ul>
           </div>
         </div>
-        <p class="takeaway reveal">Memória com escopo, priors aprendidos e sensoriamento reflexivo não colapsam em banco de dados porque só funcionam dentro do negócio que os cultivou. Os canteiros e a irrigação, esses sim, podem ser compartilhados entre um milhão de clientes.</p>
 
         <blockquote class="quote quote--big reveal">
           <p lang="en">“The gardens that last are the ones whose soil gets richer season after season.”</p>
@@ -510,25 +405,25 @@
       <div class="wrap">
         <p class="kicker">07 · Síntese</p>
         <h2 id="sintese-t">A arquitetura em um desenho</h2>
-        <p class="lead reveal">Nossa leitura do argumento: uma base de runtime que pode ser compartilhada, três camadas de primeira classe que crescem dentro de cada negócio, e o loop que faz a run seguinte começar mais sábia que a anterior.</p>
+        <p class="lead reveal">Nossa leitura: uma base compartilhável, três camadas próprias de cada negócio e o loop entre runs.</p>
 
         <figure class="stack reveal" aria-labelledby="stack-cap">
           <div class="stack__layers">
             <div class="layer layer--sky" style="--d:3">
               <p class="layer__name">Clima</p>
-              <p class="layer__what">Sensoriamento reflexivo: sinais com proveniência, que reconhecem as próprias jogadas</p>
+              <p class="layer__what">Sinais com proveniência</p>
             </div>
             <div class="layer layer--leaf" style="--d:2">
               <p class="layer__name">Sementes</p>
-              <p class="layer__what">Priors aprendidos: ponto de vista, escolhas mantidas e mortas, memória herdada</p>
+              <p class="layer__what">Ponto de vista e escolhas</p>
             </div>
             <div class="layer layer--soil" style="--d:1">
               <p class="layer__name">Solo</p>
-              <p class="layer__what">Memória com escopo: evidência com público, linhagem e retirada</p>
+              <p class="layer__what">Memória com escopo</p>
             </div>
             <div class="layer layer--wood" style="--d:0">
               <p class="layer__name">Canteiros e irrigação <span class="layer__badge">compartilhável</span></p>
-              <p class="layer__what">Runtime: sessões, workflows duráveis, permissões em código</p>
+              <p class="layer__what">Runtime</p>
             </div>
           </div>
           <div class="stack__loop" aria-hidden="true">
@@ -538,7 +433,7 @@
             </svg>
             <span class="stack__loop-label">run N → lições → run N+1</span>
           </div>
-          <figcaption id="stack-cap">As três camadas de cima são de primeira classe e únicas de cada negócio. A de baixo é a tubulação que John mapeou e que pode ser alugada. A seta é o loop de aprendizado entre runs.</figcaption>
+          <figcaption id="stack-cap">A seta é o loop de aprendizado entre runs.</figcaption>
         </figure>
       </div>
     </section>
@@ -547,7 +442,7 @@
     <section class="section section--cta" aria-labelledby="cta-t">
       <div class="wrap wrap--narrow">
         <h2 id="cta-t">Leia o original</h2>
-        <p>Este resumo cobre as ideias, não a escrita. O texto de Dan Batten tem mais nuance, ritmo e exemplos do que cabe aqui.</p>
+        <p>Este resumo cobre as ideias, não a escrita.</p>
         <div class="hero__cta hero__cta--center">
           <a class="btn btn--light" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Artigo de Dan Batten no X<span class="sr-only"> (abre em nova aba)</span></a>
           <a class="btn btn--ghost-light" href="https://x.com/john_ssuh/status/2124336124172935336" rel="noopener" target="_blank">“Agent Platform of 2027”, de John Suh<span class="sr-only"> (abre em nova aba)</span></a>
