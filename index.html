@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solo, sementes e clima: a plataforma de agentes de 2027, segundo Dan Batten</title>
+  <meta name="description" content="Resumo independente em português do artigo “‘Agent Platform of 2027’: Soil, Seeds, &amp; Weather”, de Dan Batten (Infinite Garden): por que memória com escopo, ponto de vista e sensoriamento reflexivo deveriam ser camadas de primeira classe numa plataforma de agentes." />
+  <meta name="author" content="Resumo independente; ideias de Dan Batten (Infinite Garden)" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f4ecdd" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Solo, sementes e clima: a plataforma de agentes de 2027" />
+  <meta property="og:description" content="Explicador em português das ideias de Dan Batten (Infinite Garden) em resposta ao mapa “Agent Platform of 2027”, de John Suh." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4ecdd'/%3E%3Cpath d='M8 44h48v12H8z' fill='%235a4330'/%3E%3Cpath d='M32 44V24' stroke='%233f6b3a' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M32 30c-8 0-12-6-12-12 8 0 12 5 12 12zM32 26c0-8 5-12 13-12 0 8-5 12-13 12z' fill='%237fa65a'/%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" aria-label="Crédito e navegação">
+    <div class="topbar__inner">
+      <p class="topbar__credit">Ideias de <strong>Dan Batten</strong> · Infinite Garden</p>
+      <nav aria-label="Seções">
+        <ul class="topbar__nav">
+          <li><a href="#runtime">Canteiros</a></li>
+          <li><a href="#solo">Solo</a></li>
+          <li><a href="#sementes">Sementes</a></li>
+          <li><a href="#clima">Clima</a></li>
+          <li><a href="#sintese">Síntese</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--small" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Leia o original<span class="sr-only"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- 1. HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="eyebrow">Resumo em português · resposta a “Agent Platform of 2027”</p>
+        <h1 id="hero-title">Solo, sementes <span class="amp">&amp;</span> clima</h1>
+        <p class="hero__lede">A tubulação de uma plataforma de agentes já tem mapa. O que faz o jardim crescer é outra coisa: <em>o que o sistema lembra</em>, <em>como ele enxerga</em> e <em>como ele lê um mercado que reage a ele</em>.</p>
+        <p class="hero__credit">
+          Um explicador do artigo <cite>“‘Agent Platform of 2027’: Soil, Seeds, &amp; Weather”</cite>, de
+          <strong>Dan Batten</strong> (<a href="https://www.infinitegarden.ai" rel="noopener" target="_blank">Infinite Garden</a>), escrito em resposta ao post de
+          <a href="https://x.com/john_ssuh/status/2124336124172935336" rel="noopener" target="_blank">John Suh (@john_ssuh)</a>.
+        </p>
+        <div class="hero__cta">
+          <a class="btn" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Leia o original no X<span class="sr-only"> (abre em nova aba)</span></a>
+          <a class="btn btn--ghost" href="#contexto">Começar o resumo ↓</a>
+        </div>
+      </div>
+
+      <figure class="hero__art">
+        <svg id="hero-svg" viewBox="0 0 1200 640" role="img" aria-labelledby="hero-svg-t hero-svg-d" preserveAspectRatio="xMidYMid slice">
+          <title id="hero-svg-t">Ilustração animada de um jardim em corte</title>
+          <desc id="hero-svg-d">No alto, nuvens passam e chove sobre o jardim (o clima). Na superfície, canteiros de madeira ligados por um cano de irrigação com água correndo (a tubulação). Abaixo, camadas de solo com raízes e sementes que pulsam e brotam em plantas variadas.</desc>
+          <defs>
+            <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b9d4e6" />
+              <stop offset="1" stop-color="#efe6d3" />
+            </linearGradient>
+            <linearGradient id="g-soil" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6e5238" />
+              <stop offset="1" stop-color="#2e2219" />
+            </linearGradient>
+            <radialGradient id="g-sun" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#f6d58a" />
+              <stop offset="1" stop-color="#f6d58a" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="g-seed" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#f3d27a" />
+              <stop offset="1" stop-color="#f3d27a" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="640" fill="url(#g-sky)" />
+          <circle class="sun" cx="980" cy="110" r="120" fill="url(#g-sun)" />
+          <circle cx="980" cy="110" r="38" fill="#f4cf74" />
+
+          <g class="clouds">
+            <g class="cloud cloud--a">
+              <path d="M140 140c0-26 22-46 48-44 10-22 34-36 60-30 20-24 62-22 78 6 30-6 54 16 52 44 0 2 0 4-1 6H141c-1-6-1-10-1-14z" fill="#fbf8f2" />
+              <g class="rain">
+                <line x1="190" y1="170" x2="182" y2="196" /><line x1="225" y1="176" x2="217" y2="202" /><line x1="260" y1="168" x2="252" y2="194" /><line x1="296" y1="178" x2="288" y2="204" /><line x1="330" y1="170" x2="322" y2="196" />
+              </g>
+            </g>
+            <g class="cloud cloud--b">
+              <path d="M560 96c0-18 16-32 34-30 8-16 26-24 44-18 16-14 44-10 54 10 22-2 38 14 36 34H561c-1-2-1-4-1-6z" fill="#fbf8f2" opacity=".9" />
+            </g>
+            <g class="cloud cloud--c">
+              <path d="M820 220c0-14 12-24 26-22 6-12 20-18 34-14 12-10 34-8 42 8 16-2 28 10 26 26H821z" fill="#fbf8f2" opacity=".75" />
+            </g>
+          </g>
+
+          <!-- ground surface -->
+          <path d="M0 380 C 200 370, 380 392, 600 382 S 1000 372, 1200 384 V 640 H 0 Z" fill="url(#g-soil)" />
+          <path class="stratum" d="M0 470 C 220 455, 420 488, 640 472 S 1020 458, 1200 474" />
+          <path class="stratum" d="M0 552 C 260 540, 480 566, 700 552 S 1040 540, 1200 556" />
+          <g class="pebbles" fill="#8a6c4f" opacity=".55">
+            <ellipse cx="90" cy="430" rx="7" ry="4" /><ellipse cx="310" cy="520" rx="9" ry="5" /><ellipse cx="520" cy="600" rx="6" ry="4" /><ellipse cx="760" cy="505" rx="8" ry="4" /><ellipse cx="1010" cy="590" rx="10" ry="5" /><ellipse cx="1130" cy="440" rx="6" ry="3" /><ellipse cx="440" cy="448" rx="5" ry="3" /><ellipse cx="880" cy="618" rx="7" ry="4" />
+          </g>
+
+          <!-- raised beds -->
+          <g class="beds">
+            <rect x="120" y="352" width="260" height="34" rx="4" fill="#9b6b3f" />
+            <rect x="470" y="350" width="260" height="34" rx="4" fill="#9b6b3f" />
+            <rect x="820" y="354" width="260" height="34" rx="4" fill="#9b6b3f" />
+            <path d="M120 362h260M470 360h260M820 364h260" stroke="#7d5330" stroke-width="2" />
+          </g>
+
+          <!-- irrigation -->
+          <path class="pipe" d="M40 410 H 1160" />
+          <path class="water" d="M40 410 H 1160" />
+          <g class="drips" fill="#7fb4d6">
+            <circle cx="250" cy="420" r="3" /><circle cx="600" cy="420" r="3" /><circle cx="950" cy="420" r="3" />
+          </g>
+
+          <g id="roots"></g>
+          <g id="seeds"></g>
+          <g id="plants"></g>
+        </svg>
+        <figcaption class="legend" aria-hidden="true">
+          <span><i class="dot dot--sky"></i>clima</span>
+          <span><i class="dot dot--leaf"></i>sementes</span>
+          <span><i class="dot dot--wood"></i>canteiros e irrigação</span>
+          <span><i class="dot dot--soil"></i>solo</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 2. CONTEXTO -->
+    <section id="contexto" class="section" aria-labelledby="contexto-t">
+      <div class="wrap">
+        <p class="kicker">01 · Contexto</p>
+        <h2 id="contexto-t">De uma fábrica que constrói fábricas para um jardim</h2>
+        <div class="cols">
+          <div class="prose reveal">
+            <p>John Suh publicou um mapa do que uma plataforma de agentes precisa ter em 2027: atores isolados, sandboxes compartilhadas, sistema de arquivos com permissões, conversas separadas de sessões, uma caixa de entrada para aprovações, <em>listeners</em> e workflows escritos como código. Dan Batten chama esse mapa de o mais claro que já leu, e concorda que John acerta a tubulação de base.</p>
+            <p>No fim do texto, John troca de metáfora: a plataforma vencedora pareceria menos uma <strong>fábrica que constrói fábricas</strong> e mais um <strong>jardim</strong>, uma base onde cada cliente planta as próprias sementes, e agentes, pessoas e sinais do negócio cuidam do que brota.</p>
+            <p>Batten admite o viés: a empresa dele se chama Infinite Garden.</p>
+          </div>
+          <aside class="card card--note reveal" aria-label="Sobre a Infinite Garden">
+            <h3>O jardim de onde vem a experiência</h3>
+            <ul class="facts">
+              <li><span class="facts__n">18</span><span>meses cultivando uma versão desse jardim num único vertical: <strong>marcas de consumo</strong>.</span></li>
+              <li><span class="facts__n facts__n--icon" aria-hidden="true">⟳</span><span>Agentes pesquisam demanda, desenvolvem produtos e lançam marcas <strong>como experimentos</strong>.</span></li>
+              <li><span class="facts__n facts__n--icon" aria-hidden="true">✂</span><span>O <strong>mercado decide</strong> quais marcas ganham espaço e quais são podadas; as lições de cada lote seguem para o próximo.</span></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="thesis reveal">
+          <p><span class="thesis__label">A tese</span> Canteiros e irrigação importam, mas não fazem o jardim crescer. Os problemas difíceis são, na metáfora, o <strong class="c-soil">solo</strong>, as <strong class="c-leaf">sementes</strong> e o <strong class="c-sky">clima</strong>. Uma plataforma deveria tratar esses três como <strong>camadas de primeira classe</strong>, em vez de deixar cada cliente improvisá-las por cima.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RUNTIME -->
+    <section id="runtime" class="section section--wood" aria-labelledby="runtime-t">
+      <div class="wrap">
+        <p class="kicker">02 · A camada de runtime</p>
+        <h2 id="runtime-t">Canteiros e irrigação: levar cada run até o fim sem ninguém olhando</h2>
+        <p class="lead reveal">Das peças do mapa de John, a Infinite Garden roda versões próprias de três: <strong>gestão de sessões</strong>, <strong>workflows duráveis</strong> e <strong>permissões</strong>. Foram as primeiras a ser construídas, porque um enxame que lança marcas sem supervisão precisa atravessar sozinho quatro momentos de cada run.</p>
+
+        <ol class="flow reveal" aria-label="Os quatro momentos que uma run precisa atravessar sem supervisão">
+          <li class="flow__step" style="--i:0">
+            <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="11" r="5"/><path d="M6 27c1-6 5-9 10-9s9 3 10 9"/></svg></span>
+            <h3>Pausar para uma decisão humana</h3>
+            <p>Quando a run precisa de alguém (um marco, uma mudança de direção, um bloqueio), o sistema posta uma nota curta com link para o rascunho, o teste ou o lançamento.</p>
+          </li>
+          <li class="flow__step" style="--i:1">
+            <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg></span>
+            <h3>Esperar outro agente</h3>
+            <p>A run pode esperar um minuto ou uma semana pela revisão de outro agente, ou por uma correção, sem manter um processo vivo nem gastar computação.</p>
+          </li>
+          <li class="flow__step" style="--i:2">
+            <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="18" rx="7" ry="9"/><path d="M16 9v18M9 14l-5-3M23 14l5-3M9 20H3M23 20h6M10 25l-4 3M22 25l4 3"/></svg></span>
+            <h3>Topar com um bug</h3>
+            <p>Os erros estão indo pelo mesmo caminho: a run registra o incidente, entrega para um <em>harness</em> de código e retoma o loop sem puxar uma pessoa.</p>
+          </li>
+          <li class="flow__step" style="--i:3">
+            <span class="flow__icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="16" r="5"/><path d="M16 16h13M24 16v5M28 16v4"/></svg></span>
+            <h3>Precisar de uma credencial</h3>
+            <p>A sessão do modelo roda isolada, sem credenciais, e emite ações estruturadas. Código confiável checa delegação, escopo e orçamento antes de qualquer ação executar.</p>
+          </li>
+        </ol>
+
+        <div class="grid3">
+          <article class="card reveal">
+            <h3>Conversas separadas de sessões</h3>
+            <p>A pessoa recebe só a nota curta. As sessões brutas ficam em logs e traces; você abre uma sessão para depurar uma run que falhou, como abriria código-fonte.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Workflows são código durável</h3>
+            <p>Esperas longas não seguram processo nem queimam computação. E o mesmo desenho está sendo levado para os erros.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Permissões vivem em código</h3>
+            <p>Por isso um prompt esperto não convence um agente a passar do limite de orçamento: quem decide é o código, não o modelo.</p>
+          </article>
+        </div>
+
+        <div class="runs reveal" aria-labelledby="runs-t">
+          <div class="runs__text">
+            <h3 id="runs-t">O limite da tubulação</h3>
+            <p>Juntas, essas três peças levam o enxame por esperas, bugs e passagens para uma pessoa sem estourar orçamento. Mesmo assim, como Batten resume, a <strong>run 400 ainda começa tão ingênua quanto a run 1</strong>. Levar lições de uma run para a próxima exige mais três camadas.</p>
+          </div>
+          <div class="runs__viz" aria-hidden="true">
+            <div class="runs__counter"><span>run</span> <b id="run-count">1</b></div>
+            <div class="runs__meter">
+              <span class="runs__meter-label">lições carregadas da run anterior</span>
+              <span class="runs__bar"><i></i></span>
+              <span class="runs__zero">0</span>
+            </div>
+            <div class="runs__tiles" id="run-tiles"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SOLO -->
+    <section id="solo" class="section section--soil" aria-labelledby="solo-t">
+      <div class="wrap">
+        <p class="kicker">03 · O solo</p>
+        <h2 id="solo-t">Memória com escopo</h2>
+        <p class="lead reveal">O sistema de arquivos compartilhado de John (parte GitHub, parte Google Drive) registra o que cada agente escreveu e quando. Isso resolve o armazenamento. O problema difícil está um nível acima: decidir quais dos milhares de resultados de teste de um enxame merecem virar habilidade compartilhada, antes que um resultado de sorte se espalhe pela frota como regra.</p>
+
+        <div class="duo">
+          <article class="card card--dark reveal">
+            <p class="tag">Erro 1</p>
+            <h3>Esquecer</h3>
+            <p>A descoberta vive na cabeça de um funcionário e vai embora quando ele sai.</p>
+            <div class="mini mini--forget" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+          <article class="card card--dark reveal">
+            <p class="tag">Erro 2</p>
+            <h3>Super-aprender</h3>
+            <p>Um anúncio vence o controle e, da noite para o dia, vira “as pessoas querem esta mensagem”, guiando decisões em mercados onde ela nunca foi testada.</p>
+            <div class="mini mini--overlearn" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+        </div>
+
+        <blockquote class="quote reveal">
+          <p lang="en">“A human team that treats a lucky hit as a rule makes bad calls slowly. A fleet of agents makes a dozen before lunch.”</p>
+          <p class="quote__pt">Uma equipe humana que trata um acerto de sorte como regra erra devagar. Uma frota de agentes erra uma dúzia de vezes antes do almoço.</p>
+          <footer>Dan Batten</footer>
+        </blockquote>
+
+        <div class="cols cols--center">
+          <div class="prose reveal">
+            <h3 class="h3-lg">A regra da casa</h3>
+            <blockquote class="quote quote--inline">
+              <p lang="en">“A test result is evidence, not a verdict.”</p>
+              <p class="quote__pt">Um resultado de teste é evidência, não veredito.</p>
+              <footer>Dan Batten</footer>
+            </blockquote>
+            <p>Para que a experiência de um agente nunca vire verdade compartilhada, quatro coisas moram em <strong>depósitos separados</strong>:</p>
+            <ul class="stores" aria-label="Os quatro depósitos separados">
+              <li><b>Conhecimento com fonte</b></li>
+              <li><b>Registros de trabalho</b></li>
+              <li><b>Memória de cada agente</b></li>
+              <li><b>Skills reutilizáveis</b></li>
+            </ul>
+          </div>
+          <figure class="rings reveal">
+            <svg viewBox="0 0 420 420" role="img" aria-labelledby="rings-t rings-d">
+              <title id="rings-t">Camadas de escopo das skills</title>
+              <desc id="rings-d">Três anéis concêntricos: local no centro, função no meio e global por fora. Um pulso sai do centro para fora, mostrando que a skill é resolvida de dentro para fora. Um galho lateral representa um fork com a versão de origem carimbada, e um cadeado marca regras e permissões protegidas que um fork não sobrescreve.</desc>
+              <circle class="ring ring--global" cx="210" cy="210" r="190" />
+              <circle class="ring ring--role" cx="210" cy="210" r="128" />
+              <circle class="ring ring--local" cx="210" cy="210" r="66" />
+              <circle class="ring-pulse" cx="210" cy="210" r="66" />
+              <text x="210" y="205" class="ring-label">local</text>
+              <text x="210" y="226" class="ring-sub">do agente</text>
+              <text x="210" y="112" class="ring-label">função</text>
+              <text x="210" y="46" class="ring-label">global</text>
+              <g class="fork">
+                <path d="M262 250 C 300 280, 330 300, 372 312" />
+                <circle cx="372" cy="312" r="7" />
+                <text x="300" y="340" class="ring-sub ring-sub--start">fork · v. origem</text>
+              </g>
+              <g class="lock" transform="translate(84 286)">
+                <rect x="-11" y="-2" width="22" height="18" rx="3" />
+                <path d="M-6 -2v-6a6 6 0 0 1 12 0v6" />
+              </g>
+              <text x="70" y="330" class="ring-sub ring-sub--start">protegido</text>
+            </svg>
+            <figcaption>Skills resolvem <strong>de dentro para fora</strong>: local, depois função, depois global. Ofício compartilhado e guardrails ficam em pacotes versionados atrás de um “navegador” enxuto, então cada agente carrega só o que a tarefa pede. A camada local nunca é sobrescrita por envios centrais. Um fork serve para experimentar, mas não passa por cima de regras protegidas nem de permissões.</figcaption>
+          </figure>
+        </div>
+
+        <div class="scope reveal" aria-labelledby="scope-t">
+          <h3 id="scope-t" class="h3-lg">Exemplo do artigo: a vitória com escopo</h3>
+          <ol class="scope__steps">
+            <li class="scope__step">
+              <span class="scope__n">1</span>
+              <p>Um anúncio de suplemento para foco <strong>vence</strong> com universitários na semana antes das provas.</p>
+            </li>
+            <li class="scope__step">
+              <span class="scope__n">2</span>
+              <p>A vitória é arquivada <strong>com o escopo junto</strong>, e não como verdade sobre suplementos para foco em geral:</p>
+              <p class="chips"><span>universitários</span><span>semana de provas</span><span>um teste de anúncio</span></p>
+            </li>
+            <li class="scope__step">
+              <span class="scope__n">3</span>
+              <p>A lição só chega a uma pessoa de 60 anos preocupada com névoa mental <strong>depois</strong> que um teste pequeno com esse público mostra a mesma mensagem funcionando ali também.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="grid2">
+          <article class="card reveal">
+            <h3>Promoção com linhagem</h3>
+            <ol class="lineage" aria-label="Etapas da promoção de uma adaptação local">
+              <li>Adaptação local se sustenta em vários briefs reais</li>
+              <li>Um <em>pull request</em> a promove a um pacote compartilhado, com a linhagem anexada</li>
+              <li>Checa-se se runs seguintes carregam a nova skill</li>
+              <li>…e se o resultado dessas runs melhora</li>
+            </ol>
+            <p class="note">Publicado e usado são estados diferentes.</p>
+          </article>
+          <article class="card reveal">
+            <h3>A mesma disciplina, ao contrário</h3>
+            <p>Quando uma fonte muda, a evidência superada é <strong>retirada</strong>, e as skills e memórias construídas sobre ela são revisadas. Testes sem resultado e marcas podadas também <strong>ficam arquivados</strong>.</p>
+            <div class="minox" aria-label="Linha do tempo do minoxidil">
+              <div class="minox__row"><b>1979</b><span>Minoxidil aprovado para pressão alta. Médicos se dão ao trabalho de registrar um efeito colateral estranho: pacientes ganhando cabelo.</span></div>
+              <div class="minox__line" aria-hidden="true"><i></i></div>
+              <div class="minox__row"><b>+9 anos</b><span>O remédio volta como Rogaine.</span></div>
+            </div>
+            <p class="note">Segundos atos só acontecem se fracassos antigos continuam encontráveis, com os motivos intactos.</p>
+          </article>
+        </div>
+
+        <p class="takeaway reveal">Controle de versão diz <em>o que</em> mudou. A memória precisa dizer <em>por que</em> uma crença se moveu, qual evidência sustentou a mudança e qual público a crença cobre. É a memória com escopo que transforma runs antigas em <strong>solo</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 5. SEMENTES -->
+    <section id="sementes" class="section section--leaf" aria-labelledby="sementes-t">
+      <div class="wrap">
+        <p class="kicker">04 · As sementes</p>
+        <h2 id="sementes-t">Priors aprendidos: dar ao agente um ponto de vista</h2>
+        <p class="lead reveal">Batten concorda com John que sistemas que funcionam preferem agentes estreitos, definidos em código, a um mega-agente. Esse debate costuma girar em torno de ferramentas e acesso. A pergunta menos discutida é <strong>para o que o agente olha</strong>, e sobre o que ele é empurrado a ter opinião.</p>
+
+        <div class="cols cols--center">
+          <div class="prose reveal">
+            <h3 class="h3-lg">Deixados à vontade, os modelos derivam para a média</h3>
+            <p>Peça um anúncio de suplemento premium e dá para imaginar o resultado antes do primeiro pixel:</p>
+            <blockquote class="quote quote--inline">
+              <p lang="en">“a bottle on a stone plinth, soft window light, a sprig of green, beige on beige.”</p>
+              <p class="quote__pt">um frasco sobre um pedestal de pedra, luz suave de janela, um raminho verde, bege sobre bege.</p>
+              <footer>Dan Batten</footer>
+            </blockquote>
+            <p>Rode um milhão de agentes sobre um punhado de modelos-base e o resultado é uma <strong>monocultura</strong>: marca após marca parecendo tirada do mesmo deck, e uma única praga pode acabar com o campo inteiro.</p>
+          </div>
+          <figure class="mono reveal">
+            <div class="mono__panels">
+              <div class="mono__panel">
+                <svg id="mono-a" viewBox="0 0 300 220" role="img" aria-labelledby="mono-a-t"><title id="mono-a-t">Monocultura: fileiras de plantas idênticas em tons de bege; uma praga passa e murcha todas</title></svg>
+                <p>Monocultura</p>
+              </div>
+              <div class="mono__panel">
+                <svg id="mono-b" viewBox="0 0 300 220" role="img" aria-labelledby="mono-b-t"><title id="mono-b-t">Jardim diverso: plantas de formas e cores variadas; a mesma praga atinge só algumas</title></svg>
+                <p>Jardim diverso</p>
+              </div>
+            </div>
+            <figcaption>Ilustração nossa da imagem de Batten: a mesma praga passa pelos dois canteiros.</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid2">
+          <article class="card stat reveal">
+            <p class="stat__n"><span data-count="10.7" data-decimals="1">10,7</span>%</p>
+            <p>Num estudo de 2024, escritores que receberam uma ideia de um modelo de linguagem escreveram histórias avaliadas como <strong>mais criativas</strong>, e 10,7% <strong>mais parecidas entre si</strong>.</p>
+          </article>
+          <article class="card stat reveal">
+            <p class="stat__n stat__n--word">Midjourney</p>
+            <p>Em outro estudo, designers que esboçavam com Midjourney ficaram <strong>mais perto de um exemplo</strong> que tinham visto do que quem desenhava sem ajuda ou com busca de imagens.</p>
+          </article>
+        </div>
+        <p class="takeaway reveal">Cada peça fica mais afiada enquanto o conjunto se estreita. E prompt esperto, diz Batten, não quebra monocultura.</p>
+
+        <h3 class="h3-lg reveal">Mecanismos mais estranhos, para dar ao agente olhos próprios</h3>
+        <ul class="mech">
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">▦</span><div><h4>Biblioteca estética</h4><p>Busca por <em>o que</em> uma referência faz e <em>como</em> ela parece. Um still de filme pode entrar pelo ritmo ou pela luz.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">◎</span><div><h4>Cada referência com um trabalho</h4><p>Para cada brief, uma lista curta, e cada imagem recebe uma função estrita: quais qualidades pegar, quais deixar, às vezes um contraexemplo para marcar o limite.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">⇄</span><div><h4>Pares improváveis</h4><p>Referências que nunca dividiriam um painel são combinadas e o agente precisa explicar a conexão. Se não consegue, o painel é só uma pilha de estilos.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">∿</span><div><h4>Tempo fora do brief</h4><p>Loops curtos de deriva, moldados por personas criativas: o agente navega sem tarefa e anota o que chamou atenção, com um motivo. As notas podem voltar semanas depois em trabalhos sem relação. (São caros de rodar, um problema à parte.)</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">✓✕</span><div><h4>Memória de decisões</h4><p>Loops separados guardam decisões criativas, não entregas: o que foi escolhido, o que foi morto e por quê. Sem esse histórico, o agente repete a mesma escolha segura.</p></div></li>
+          <li class="mech__item reveal"><span class="mech__ico" aria-hidden="true">⚖</span><div><h4>Em teste: juízes e críticos</h4><p>Modelos pequenos treinados para escolher a mais forte entre duas direções bem acabadas e explicar por quê; e agentes com sensibilidades em choque que se criticam, como uma boa equipe criativa discute.</p></div></li>
+        </ul>
+
+        <div class="bench reveal">
+          <div class="bench__seal" aria-hidden="true"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34"/><text x="40" y="54">?</text></svg></div>
+          <div>
+            <h3>Honestidade sobre o que ainda não se sabe</h3>
+            <p>A impressão interna de que o trabalho parece mais afiado não prova nada. Há um benchmark <strong>cego e pareado</strong> montado, com briefs separados e lacrados de antemão, para testar se a biblioteca torna os resultados mensuravelmente mais distintos. <strong>Ele ainda não foi rodado.</strong></p>
+            <blockquote class="quote quote--inline">
+              <p lang="en">“We haven't run the benchmark yet. Until we do, the lift is a hunch.”</p>
+              <p class="quote__pt">Ainda não rodamos o benchmark. Até lá, o ganho é um palpite.</p>
+              <footer>Dan Batten</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <p class="takeaway reveal">Juntando tudo, uma semente carrega mais que um arquivo de configuração e um conjunto de ferramentas: <strong>um ponto de vista, um histórico de escolhas mantidas e mortas, e uma memória herdada de runs anteriores.</strong></p>
+      </div>
+    </section>
+
+    <!-- 6. CLIMA -->
+    <section id="clima" class="section section--sky" aria-labelledby="clima-t">
+      <div class="wrap">
+        <p class="kicker">05 · O clima</p>
+        <h2 id="clima-t">Sensoriamento reflexivo</h2>
+        <p class="lead reveal">Os <em>listeners</em> de John deixam os agentes assinarem o mundo via webhooks, streams e <em>change data capture</em>, transformando eventos em sinais. Num negócio real, porém, os sinais que mais importam vêm de <strong>um mercado reagindo às suas próprias jogadas</strong>.</p>
+
+        <figure class="weather reveal">
+          <canvas id="weather" aria-hidden="true"></canvas>
+          <div class="weather__ui">
+            <button type="button" class="btn btn--small" id="weather-move">Fazer uma jogada do enxame</button>
+            <p class="weather__legend"><span><i class="dot dot--clay"></i>rastro das nossas jogadas</span><span><i class="dot dot--skydeep"></i>sinal do mercado</span></p>
+          </div>
+          <figcaption>Ilustração nossa: cada jogada do enxame (anúncio, preço, lançamento) deforma o campo que os <em>listeners</em> leem. Um listener que não sabe o que o próprio enxame acabou de fazer confunde esse rastro com sinal do mercado.</figcaption>
+        </figure>
+
+        <div class="grid2">
+          <article class="card reveal">
+            <h3>Motor a jato</h3>
+            <div class="engine" aria-hidden="true"><span></span><span></span><span></span><span></span><b>=</b><span class="engine__whole"></span></div>
+            <p>Dá para testar cada peça na bancada, montar e confiar que o motor vai render perto dos números, porque as peças não mudam de comportamento depois de instaladas.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Demanda de consumo</h3>
+            <div class="complex" aria-hidden="true">
+              <svg viewBox="0 0 200 90"><g class="complex__links"><path d="M30 25L100 45L170 25M30 65L100 45L170 65M30 25L30 65M170 25L170 65M30 25L170 65M30 65L170 25"/></g><g class="complex__nodes"><circle cx="30" cy="25" r="7"/><circle cx="30" cy="65" r="7"/><circle cx="100" cy="45" r="9"/><circle cx="170" cy="25" r="7"/><circle cx="170" cy="65" r="7"/></g></svg>
+            </div>
+            <p>É um sistema complexo: clientes, concorrentes, cultura, preços e canais reagem uns aos outros e ao seu lançamento. Um teste antes do lançamento não mostra o mercado que o lançamento cria.</p>
+          </article>
+        </div>
+
+        <div class="coke reveal" aria-labelledby="coke-t">
+          <h3 id="coke-t">1985: o teste que mediu a coisa errada</h3>
+          <div class="coke__grid">
+            <div class="coke__fact"><b>~200 mil</b><span>pessoas em testes de sabor da Coca-Cola, com preferência clara por uma fórmula mais doce. A original foi substituída.</span></div>
+            <div class="coke__fact"><b>sabor ≠ apego</b><span>Os testes mediram bem o sabor, mas não o apego, que só apareceu depois que a Coca agiu.</span></div>
+            <div class="coke__fact coke__fact--days"><b><span data-count="79">79</span> dias</b><span>depois, a Classic estava de volta.</span><span class="coke__bar" aria-hidden="true"><i></i></span></div>
+          </div>
+        </div>
+
+        <div class="cols cols--center">
+          <div class="prose reveal">
+            <h3 class="h3-lg">O enxame vira parte do mercado</h3>
+            <p>Clientes aprendem, concorrentes copiam, e o anúncio vencedor do mês passado para de vencer. Nenhum momento se repete, então testes A/B limpos são raros.</p>
+            <p>Isso muda o que um listener precisa carregar. Um monitor cego ao anúncio, à mudança de preço ou ao lançamento que os próprios agentes acabaram de pôr no ar acaba <strong>perseguindo o próprio rastro</strong> do enxame. Cada sinal precisa vir com <strong>proveniência</strong>, a começar pelas últimas jogadas dos nossos agentes.</p>
+          </div>
+          <div class="bets reveal" aria-labelledby="bets-t">
+            <h3 id="bets-t" class="sr-only">Muitas apostas pequenas versus uma aposta grande</h3>
+            <div class="bets__col">
+              <p class="bets__label">Uma aposta grande</p>
+              <div class="bets__big" aria-hidden="true"></div>
+            </div>
+            <div class="bets__col">
+              <p class="bets__label">Muitas jogadas pequenas num portfólio</p>
+              <div class="bets__small" aria-hidden="true" id="bets-small"></div>
+            </div>
+            <p class="bets__note">Na prática: compromissos físicos caros seguram-se <strong>o mais tarde que a evidência permitir</strong>.</p>
+          </div>
+        </div>
+        <p class="takeaway reveal">O <em>product-market fit</em> continua se movendo depois do lançamento. O tempo muda, e o sistema precisa continuar lendo o céu.</p>
+      </div>
+    </section>
+
+    <!-- 7. DATABASE -->
+    <section id="banco" class="section" aria-labelledby="banco-t">
+      <div class="wrap">
+        <p class="kicker">06 · A conclusão</p>
+        <h2 id="banco-t">O que não vira banco de dados</h2>
+        <p class="lead reveal">John argumenta que a maior parte do resto do software vai ser rebaixada a banco de dados sob a camada de agentes. Para a maioria dos SaaS (CRMs, ferramentas de tickets, dashboards), Batten acha que ele está certo. Fica a pergunta incômoda: se a tubulação é padrão e os concorrentes chamam os mesmos poucos modelos, <strong>onde mora a vantagem duradoura?</strong></p>
+
+        <div class="rent reveal">
+          <div class="rent__col rent__col--yes">
+            <h3>Dá para alugar</h3>
+            <p>Uma ótima versão da plataforma de John vai chegar, do time dele ou de um rival. Quando chegar, seus concorrentes alugam a mesma.</p>
+            <ul><li>Canteiros e irrigação</li><li>Os mesmos poucos modelos</li></ul>
+          </div>
+          <div class="rent__col rent__col--no">
+            <h3>Não dá para alugar</h3>
+            <p>Só se acumula com briefs e lançamentos reais:</p>
+            <ul>
+              <li>Memória dos testes que falharam, e por que falharam</li>
+              <li>Ponto de vista construído com milhares de decisões de manter ou matar</li>
+              <li>Listeners que sabem quando estão lendo o próprio rastro do enxame</li>
+            </ul>
+          </div>
+        </div>
+        <p class="takeaway reveal">Memória com escopo, priors aprendidos e sensoriamento reflexivo não colapsam em banco de dados porque só funcionam dentro do negócio que os cultivou. Os canteiros e a irrigação, esses sim, podem ser compartilhados entre um milhão de clientes.</p>
+
+        <blockquote class="quote quote--big reveal">
+          <p lang="en">“The gardens that last are the ones whose soil gets richer season after season.”</p>
+          <p class="quote__pt">Os jardins que duram são aqueles cujo solo fica mais rico a cada estação.</p>
+          <footer>Dan Batten</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 8. SÍNTESE -->
+    <section id="sintese" class="section section--paper" aria-labelledby="sintese-t">
+      <div class="wrap">
+        <p class="kicker">07 · Síntese</p>
+        <h2 id="sintese-t">A arquitetura em um desenho</h2>
+        <p class="lead reveal">Nossa leitura do argumento: uma base de runtime que pode ser compartilhada, três camadas de primeira classe que crescem dentro de cada negócio, e o loop que faz a run seguinte começar mais sábia que a anterior.</p>
+
+        <figure class="stack reveal" aria-labelledby="stack-cap">
+          <div class="stack__layers">
+            <div class="layer layer--sky" style="--d:3">
+              <p class="layer__name">Clima</p>
+              <p class="layer__what">Sensoriamento reflexivo: sinais com proveniência, que reconhecem as próprias jogadas</p>
+            </div>
+            <div class="layer layer--leaf" style="--d:2">
+              <p class="layer__name">Sementes</p>
+              <p class="layer__what">Priors aprendidos: ponto de vista, escolhas mantidas e mortas, memória herdada</p>
+            </div>
+            <div class="layer layer--soil" style="--d:1">
+              <p class="layer__name">Solo</p>
+              <p class="layer__what">Memória com escopo: evidência com público, linhagem e retirada</p>
+            </div>
+            <div class="layer layer--wood" style="--d:0">
+              <p class="layer__name">Canteiros e irrigação <span class="layer__badge">compartilhável</span></p>
+              <p class="layer__what">Runtime: sessões, workflows duráveis, permissões em código</p>
+            </div>
+          </div>
+          <div class="stack__loop" aria-hidden="true">
+            <svg viewBox="0 0 120 420" preserveAspectRatio="none">
+              <path class="loop-path" d="M20 400 C 110 400, 110 20, 20 20" />
+              <path class="loop-flow" d="M20 400 C 110 400, 110 20, 20 20" />
+            </svg>
+            <span class="stack__loop-label">run N → lições → run N+1</span>
+          </div>
+          <figcaption id="stack-cap">As três camadas de cima são de primeira classe e únicas de cada negócio. A de baixo é a tubulação que John mapeou e que pode ser alugada. A seta é o loop de aprendizado entre runs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section class="section section--cta" aria-labelledby="cta-t">
+      <div class="wrap wrap--narrow">
+        <h2 id="cta-t">Leia o original</h2>
+        <p>Este resumo cobre as ideias, não a escrita. O texto de Dan Batten tem mais nuance, ritmo e exemplos do que cabe aqui.</p>
+        <div class="hero__cta hero__cta--center">
+          <a class="btn btn--light" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Artigo de Dan Batten no X<span class="sr-only"> (abre em nova aba)</span></a>
+          <a class="btn btn--ghost-light" href="https://x.com/john_ssuh/status/2124336124172935336" rel="noopener" target="_blank">“Agent Platform of 2027”, de John Suh<span class="sr-only"> (abre em nova aba)</span></a>
+        </div>
+        <h3 class="cta__more">Mais do autor sobre clima e solo</h3>
+        <ul class="links">
+          <li><a href="https://infinitegarden.com/articles/demand-is-a-complex-system" rel="noopener" target="_blank">Demand is a complex system</a></li>
+          <li><a href="https://infinitegarden.com/articles/commercial-intelligence-with-infinite-memory" rel="noopener" target="_blank">Commercial intelligence with infinite memory</a></li>
+          <li><a href="https://www.infinitegarden.ai" rel="noopener" target="_blank">infinitegarden.ai</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__credit">Ideias e artigo original: <strong>Dan Batten</strong>, <a href="https://www.infinitegarden.ai" rel="noopener" target="_blank">Infinite Garden</a>. Em resposta a <a href="https://x.com/john_ssuh/status/2124336124172935336" rel="noopener" target="_blank">John Suh (@john_ssuh)</a>.</p>
+      <p class="footer__note">Resumo independente em português; não afiliado ao autor. Todo o crédito das ideias a Dan Batten. Citações curtas em inglês com tradução nossa; ilustrações e diagramas feitos para esta página. Sem rastreamento nem analytics.</p>
+      <p><a class="btn btn--small" href="https://x.com/DanBatten/status/2125667463564234936" rel="noopener" target="_blank">Leia o original<span class="sr-only"> (abre em nova aba)</span></a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
